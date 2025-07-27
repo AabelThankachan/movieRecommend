@@ -28,12 +28,14 @@ def recommend(movie):
 
     return recommended_movies, recommended_movies_posters
 
-movies=pickle.load(open("movies.pkl", "rb")) #movies is a DataFrame
+import os
+movies = pickle.load(open(os.path.join("code", "movies.pkl"), "rb")) #movies is a DataFrame
 #movies = movies['title'].values
 
 #similarity=pickle.load(open("similarity.pkl", "rb"))
-with gzip.open("similarity.pkl.gz", "rb") as f:
+with gzip.open(os.path.join("code", "similarity.pkl.gz"), "rb") as f:
     similarity = pickle.load(f)
+
 
 st.title("Movie Recommendation System")
 
